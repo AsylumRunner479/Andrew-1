@@ -8,7 +8,7 @@ public class CarHandler : MonoBehaviour
 
     public GameObject self;
     public HingeJoint[] wheel;
-    public WheelCollider[] wheelColliders;
+    public GameObject[] wheelColliders;
     
 
     // Update is called once per frame
@@ -16,13 +16,13 @@ public class CarHandler : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            Vector3 pos;
-            Quaternion rotationQ;
-            wheelColliders[i].GetWorldPose(out pos, out rotationQ);
-            wheelColliders[i].transform.position = pos;
-            wheelColliders[i].transform.rotation = rotationQ;
+            if (wheelColliders[i].transform.rotation.x <= 20 && wheelColliders[i].transform.rotation.x >= -20)
+            {
+                wheelColliders[i].transform.Rotate(Input.GetAxis("Horizontal"), 0, 0, Space.Self);
+            }
         }
-        self.transform.Rotate(0, Input.GetAxis("Horizontal"), 0, 0);
+        
+        
         
 
     }

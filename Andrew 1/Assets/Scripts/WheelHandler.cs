@@ -14,6 +14,7 @@ public class WheelHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Rotate(0, Input.GetAxis("Vertical"), 0, 0);
+        this.transform.Rotate(0, Input.GetAxis("Vertical"), 0, Space.Self);
+
     }
 }
