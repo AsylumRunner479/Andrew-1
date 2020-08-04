@@ -18,7 +18,7 @@ public class CarHandler : MonoBehaviour
         {
             if (wheelColliders[i].transform.rotation.x <= 20 && wheelColliders[i].transform.rotation.x >= -20)
             {
-                wheelColliders[i].transform.Rotate(Input.GetAxis("Horizontal"), 0, 0, Space.Self);
+                wheelColliders[i].transform.Rotate(Input.GetAxis("Horizontal"), Input.GetAxis("Horizontal"), 0, Space.Self);
             }
         }
         
